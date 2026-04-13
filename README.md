@@ -896,7 +896,6 @@ Real-Time Processing: The FPGA handles decimation and demodulation. The Jetson m
 
 Shutdown Procedure: To power down safely, stop data acquisition, park motors, turn off lock-in outputs, and turn off the cryocooler last (since warming up the SQUID slowly is safer than abrupt warming).
 
-Example Code (illustrative, not from actual repo):
 
 python
 Copy
