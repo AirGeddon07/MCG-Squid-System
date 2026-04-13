@@ -17,7 +17,9 @@ A superconducting magnetic sensor array that detects pico- to femto-Tesla magnet
 . The low-Tc SQUID requires cryogenic cooling (typically ~4 K) to operate.
 
 Estimate: 1 × $250000.00 = $250000.00
+
 Sourcing Options:
+
 https://www.digikey.com/search/en?q=SQUID%20sensor
 https://www.mouser.com/Search/Refine?Keyword=SQUID+sensor
 https://www.ptb.de/cms/en/ptb/research-development/8-divisions/82-quantum-metrology/822-quantum-magnetometry/8221-squid-metrology.html
@@ -46,16 +48,20 @@ Physical / Print
 Dimensions: 200x200x150mm (sensor head)
 
 Connections:
+
 <img width="1485" height="483" alt="image" src="https://github.com/user-attachments/assets/6372ea62-a2fb-439a-9c7f-90111dd2f5d1" />
 
 Cryogenic Cooler (Closed-Cycle GM Cryocooler) – 
+
 <img width="500" height="281" alt="image" src="https://github.com/user-attachments/assets/a796c5d8-5908-4d2b-a38c-5a4a3f726941" />
 
 A Gifford-McMahon closed-cycle refrigerator that provides the necessary cryogenic temperature for the SQUID. It is integrated into the carbon-fiber cryostat housing.
 Analog Signal Chain
 
 Estimate: 1 × $75000.00 = $75000.00
+
 Sourcing Options:
+
 https://www.arscryo.com/cryocooler-principles-of-operation
 https://bluefors.com/products/gifford-mcmahon-cryocoolers/
 https://shicryogenics.com/products/cryocoolers/
@@ -95,20 +101,24 @@ Physical / Print
 Dimensions: 400x300x300mm
 
 Connections:
+
 <img width="1138" height="559" alt="image" src="https://github.com/user-attachments/assets/0074b432-8271-40e0-af5d-04bd282c78d0" />
 
 Low-Noise Pre-Amplifier Array (e.g. ADA4807-4) – 
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/c22395c4-0594-4afd-87fa-6eb1637adf8f" />
 
 Custom analog amplifier boards to boost the tiny SQUID output signals with minimal added noise. Typical devices like the ADA4807 offer ~3.1 nV/√Hz noise density
 
 Estimate: 1 × $800.00 = $800.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/detail/analog-devices-inc/ADA4807-4ARUZ-EBZ/5583160
 https://www.digikey.com/en/products/detail/analog-devices-inc/AMC-ADA4807-2ARMZ/9916377
 https://www.mouser.com/Search/Refine?N=13063853&Keyword=ADA4807+Quad+Module
 
-Description
+Description:
 Amplifies extremely weak SQUID signals with minimal added noise before further processing.
 
 Technical Specifications:
@@ -126,6 +136,7 @@ Data Rate: N/A (Analog Bandwidth: 1 GHz)
 Range: Output Voltage Swing (e.g., +/-3.8V @ +/-5V supplies)
 Antenna Type: N/A
 Supported Standards/Versions: N/A
+
 Pins:
 Analog Inputs (xN)
 Analog Outputs (xN)
@@ -134,15 +145,19 @@ Physical / Print
 Dimensions: 100x60x10mm
 
 Connections:
+
 <img width="1479" height="679" alt="image" src="https://github.com/user-attachments/assets/f00442f5-4cb1-4e36-b7df-f73405021a85" />
 
 RF Filter Array – 
+
 <img width="500" height="379" alt="image" src="https://github.com/user-attachments/assets/2e2d768a-6806-4882-bdc8-f31e56970b63" />
 
 EMI filter board that removes high-frequency interference before lock-in detection.
 
 Estimate: 1 × $300.00 = $300.00
+
 Sourcing Options:
+
 https://www.sparkfun.com/custom_circuit_boards
 https://www.digikey.com/en/products/filter/emi-rfi-filters-lc-rc-networks/835
 https://www.digikey.com/en/products/filter/emi-filter-kits/646
@@ -166,6 +181,7 @@ Data Rate: Not Applicable (processes analog signals)
 Range: Not Applicable (no communication range)
 Antenna Type: Not Applicable (not an RF transceiver)
 Supported Standards/Versions: Not Applicable (no communication standards)
+
 Pins:
 Input Channels
 Output Channels
@@ -175,15 +191,19 @@ Physical / Print
 Dimensions: 80x50x8mm
 
 Connections:
+
 <img width="1081" height="587" alt="image" src="https://github.com/user-attachments/assets/04d727ab-8be5-4397-b419-22f6d2365cba" />
 
 Multi-Channel Lock-In Amplifier (e.g. Zurich Instruments MFLI) –
+
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/e0d77704-000b-4948-a22c-ec47e2ee2e15" />
 
 Demodulates and extracts the signal of interest from the noisy background by phase-sensitive detection.
 
 Estimate: 1 × $35000.00 = $35000.00
+
 Sourcing Options:
+
 https://www.ebay.com/itm/205640593767
 https://www.digikey.com/search/en?q=Zurich%20Instruments%20MFLI
 https://www.mouser.com/search/?q=Zurich%20Instruments%20MFLI
@@ -214,16 +234,20 @@ Physical / Print
 Dimensions: 450x300x150mm
 
 Connections:
+
 <img width="1141" height="609" alt="image" src="https://github.com/user-attachments/assets/6d49ac8e-5f29-45d8-b256-41eacca9fb37" />
 
 High-Resolution ADC Module (e.g. AD7768) –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/6dae3eff-2b69-432f-9c1c-86b824a97632" />
 
 A 24-bit analog-to-digital converter that digitizes the lock-in outputs. The AD7768-1 evaluation board provides multiple ADC channels and digital interfaces.
 Digital Processing
 
 Estimate: 1 × $500.00 = $500.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/detail/analog-devices-inc/EV-AD7768-1FMCZ/9370883
 https://www.mouser.com/Search/Refine?Keyword=EV-AD7768-1FMCZ
 https://www.analog.com/en/resources/evaluation-hardware-and-software/evaluation-boards-kits/eval-ad7768-1.html
@@ -255,15 +279,19 @@ Physical / Print
 Dimensions: 100x70x12mm
 
 Connections:
+
 <img width="1588" height="748" alt="image" src="https://github.com/user-attachments/assets/bbcb09ea-dc7d-4669-9d35-f621bc16c2dd" />
 
 FPGA/DSP Processor (Xilinx Zynq-7000 SoC) –
+
 <img width="500" height="498" alt="image" src="https://github.com/user-attachments/assets/83c6c86a-d857-4887-94fa-0bd84d91c016" />
 
 A reprogrammable logic board that handles real-time signal processing and data aggregation. Communicates with the ADC over SPI and with the embedded computer over PCIe.
 
 Estimate: 1 × $1200.00 = $1200.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/detail/xilinx-inc/XC7Z035-L2FBG676I/XC7Z035-L2FBG676I-ND/5247378
 https://digilent.com/shop/zybo-z7-zynq-7000-arm-fpga-soc-development-board/
 https://www.mouser.com/Search/Refine?Keyword=Xilinx+Zynq-7000+SoC+Module
@@ -296,15 +324,19 @@ Physical / Print
 Dimensions: 100x80x15mm
 
 Connections:
+
 <img width="1094" height="625" alt="image" src="https://github.com/user-attachments/assets/0d0cdd28-a1f7-4752-9359-47cf08004db4" />
 
 Embedded AI System (NVIDIA Jetson AGX Xavier NX) – 
+
 <img width="500" height="189" alt="image" src="https://github.com/user-attachments/assets/eec814a7-4529-482e-adc0-7aa8231180eb" />
 
 A compact AI supercomputer (up to 21 TOPS) that runs high-level control software and machine learning models. It interfaces with the FPGA (PCIe), wireless module, and motor controller.
 
 Estimate: 1 × $600.00 = $600.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/102110427/12323559
 https://www.generationrobots.com/en/403635-nvidia-jetson-xavier-nx-developer-kit.html
 https://developer.nvidia.com/buy-jetson
@@ -337,9 +369,11 @@ Physical / Print
 Dimensions: 70x45x8mm
 
 Connections:
+
 <img width="987" height="552" alt="image" src="https://github.com/user-attachments/assets/a5a93d76-b70d-401f-baa8-278d2d6257b5" />
 
 Wireless Communication Module (Intel AX210) – 
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/067f34f9-df75-4aec-b317-f46a30e452b2" />
 
 A Wi-Fi 6E wireless card (M.2/PCIe form factor) providing high-bandwidth, low-latency data link to a remote control station.
@@ -375,15 +409,19 @@ Physical / Print
 Dimensions: 22x30x2.4mm (M.2)
 
 Connections:
+
 <img width="908" height="321" alt="image" src="https://github.com/user-attachments/assets/66ea67d8-3de2-4d01-9d4d-5deba1d5f5ea" />
 
 SQUID Cryogenic Power Supply (Keithley 2400 SourceMeter) –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/e101d699-99d3-462a-83c8-4acf16a58475" />
 
 Provides ultra-stable low-noise current and voltage bias to the SQUID array.
 
 Estimate: 1 × $7000.00 = $7000.00
+
 Sourcing Options:
+
 https://www.mouser.com/ProductDetail/Keithley-Instruments-Inc/2400?qs=yBvC8ON7YZ3CxGCjcXlIIQ%3D%3D
 https://www.transcat.com/keithley-2400-digital-sourcemeter
 https://www.testequity.com/product/14592-4-2400
@@ -413,15 +451,19 @@ Physical / Print
 Dimensions: 250x100x350mm
 
 Connections:
+
 <img width="746" height="378" alt="image" src="https://github.com/user-attachments/assets/92b1ce50-0086-43d6-a305-015922efa9fc" />
 
 High-Capacity Battery Pack (LiFePO4 24V, 100Ah) –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/488430c7-0d09-4253-acdb-ac98ad7e809c" />
 
 Portable battery that supplies the entire system.
 
 Estimate: 1 × $400.00 = $400.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/filter/dc-dc-converters/922?s=N4IgTC5ODEsLxpBTAJgqgLgGIQMzBA
 https://www.adafruit.com/category/139
 https://www.mouser.com/c/power-supplies/dc-dc-converters/
@@ -456,16 +498,20 @@ Physical / Print
 Dimensions: 150x100x25mm
 
 Connections:
+
 <img width="766" height="755" alt="image" src="https://github.com/user-attachments/assets/197a5b81-0358-4f6f-8218-39ceddd0d80a" />
 
 Main Power Distribution Unit (Custom DC/DC Converter) – 
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/0d239793-60aa-44ff-943c-254f1f4110a5" />
 
 Distributes power from the battery to all subsystems. Converts 24V to required voltages (240VAC for cryocooler, 19V for Jetson, 5V/12V for FPGA, 5V for ADC, etc.).
 Motion & Structure
 
 Estimate: 1 × $400.00 = $400.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/filter/dc-dc-converters/922?s=N4IgTC5ODEsLxpBTAJgqgLgGIQMzBA
 https://www.adafruit.com/category/139
 https://www.mouser.com/c/power-supplies/dc-dc-converters/
@@ -500,15 +546,19 @@ Physical / Print
 Dimensions: 150x100x25mm
 
 Connections:
+
 <img width="903" height="837" alt="image" src="https://github.com/user-attachments/assets/bae04fe5-29c1-4a03-a3d0-000a88a93882" />
 
 Stepper Motor Driver (Trinamic TMC5160 Multi-Axis) – 
+
 <img width="500" height="281" alt="image" src="https://github.com/user-attachments/assets/0865731a-1f15-4418-944b-1916b589efeb" />
 
 Controls stepper motors for positioning the SQUID gantry.
 
 Estimate: 1 × $200.00 = $200.00
+
 Sourcing Options:
+
 https://www.digikey.com/en/products/detail/trinamic-motion-control-gmbh/TMC5160-EVAL/8440398
 https://www.newark.com/trinamic/tmc5160-eval/eval-board-stepper-motor-bipolar/dp/50AC9674
 https://export.farnell.com/trinamic-analog-devices/tmc5160-eval/eval-board-stepper-motor-controller/dp/2846896
@@ -537,52 +587,66 @@ Physical / Print
 Dimensions: 100x60x15mm
 
 Connections:
+
 <img width="1091" height="591" alt="image" src="https://github.com/user-attachments/assets/3c00745f-3afa-436d-a631-decdff8ff944" />
 
 Gantry Frame (Aluminum Extrusions and Lead Screws) –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/7d0b1c3a-ca8f-429e-acd2-612a88cdd100" />
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/0b68b8b7-f9dc-4814-a24c-a83bda276e0f" />
 
 A rigid non-magnetic aluminum structure (base plate, vertical & horizontal 80×40 V-slot extrusions) supporting an X-Y gantry. The X-axis uses a precision lead screw (T8 2mm pitch) and linear rails (HIWIN) for smooth motion. A NEMA stepper motor with flexible coupler drives the lead screw.
 
 Main Base Platform – 
+
 <img width="500" height="422" alt="image" src="https://github.com/user-attachments/assets/6597fcb7-07ad-425d-a12a-3ddd5f6900f0" />
 
 Heavy-duty 5083 aluminum plate.
 
 Vibration Isolation Feet (M8 mounts) –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d8d85b18-3d7f-4634-bd35-53769bc7c52a" />
 
 Rubber/spring isolators under the base.
 
 Magnetic Shielding
 Mu-metal Shielding Panels –
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/697f5b87-6305-490e-a1a4-2adc4bc246b8" />
 
 High-permeability alloy sheets that surround the cryostat to block external magnetic fields.
 
 3D-Printed Panel Holders and Clips –
+
 <img width="1014" height="598" alt="image" src="https://github.com/user-attachments/assets/ecf8a366-fe92-4e13-825c-d240fd1385af" />
+
 <img width="1546" height="599" alt="image" src="https://github.com/user-attachments/assets/2dfd25b5-48cb-4ded-b0f0-98cfdb39749f" />
 
 Custom plastic mounts that secure the mu-metal panels and organize cables.
 
 Miscellaneous Hardware – 
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/cb9b05c7-12c4-4141-9559-6cc04dec7600" />
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/aeb7d040-49bb-4382-9e6d-00f302514cf1" />
 
 
 T-nuts, bolts, standoffs, and cable management clips (many parts are 3D-printed) used for assembly and cable routing.
 The Bill of Materials (BOM) CSV provides details (names, quantities, descriptions). Typical parts from the BOM include high-end lab instruments (e.g. Zurich Lock-In, Keithley SMU), specialized sensors and electronics, and a mix of off-the-shelf mechanical parts and custom 3D-printed mounts. All components are chosen to be non-magnetic (aluminum, carbon fiber) near the sensor to avoid interference.
 SQUID Cryostat Outer Housing-
+
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/9f33bf55-18fc-414a-bf25-995cca22db28" />
 
 Custom Fabricated Carbon Fiber Housing
 Estimate: 1 × $1500.00 = $1500.00
+
 Sourcing Options:
+
 https://fairclothcomposites.com/products/custom-parts
 https://dragonplate.com/custom-carbon-fiber-fabrication
 https://www.mcmaster.com/search?q=carbon+fiber+sheet
+
 Description:
 Lightweight, non-magnetic carbon fiber housing for the SQUID sensor array and integrated cryocooler.
 
@@ -590,7 +654,9 @@ Technical Specifications:
 Physical / Print
 Dimensions: 250x250x200mm
 Material: Carbon Fiber
+
 Connections:
+
 <img width="1096" height="629" alt="image" src="https://github.com/user-attachments/assets/2df2c3bd-4f76-4c6d-8aac-699bdbcdec7b" />
 
 Mechanical Assembly
