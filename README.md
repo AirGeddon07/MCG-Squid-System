@@ -5,6 +5,8 @@ This project implements a portable Magnetocardiography (MCG) system using a mult
 
 <img width="1243" height="864" alt="MCG visual 2" src="https://github.com/user-attachments/assets/4e773ef3-8f1b-4238-be81-b50a1e5d8170" />
 
+For Detailed Blueprint Check out : 
+https://www.blueprint.am/s/-HDn8-X4wVu4Uc4gdqizYnHnoETic48dUwH4BOvl_gQ 
 
 Key Components
 The main components of the MCG system (as listed in the BOM) are:
