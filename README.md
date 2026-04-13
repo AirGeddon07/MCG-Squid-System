@@ -908,30 +908,53 @@ data = mcg.acquire(duration=10.0)          # return NumPy array of samples
 mcg.save_to_file('recording1.h5', data)    # save measurements
 Replace the above with your actual APIs as implemented.
 
-File Structure
+File Structure:
+
 A suggested repository layout is:
 
-graphql
-Copy
+graphql: 
+
+
 / (project root)
+
 ├── README.md                # (this file)
-├── LICENSE                  # License (e.g. MIT)
+
+├── LICENSE                  # License 
+
 /hardware
+
 │   ├── CAD/                 # 3D models and drawings of mechanical parts
+
 │   └── schematics/          # circuit schematics (PCB/board files)
+
 /electronics
+
 │   ├── pcb_files/           # PCB design files for PCBs (preamp, filter, etc.)
+
 │   └── BOM.csv              # Bill of Materials (provided)
+
 /firmware
+
 │   ├── fpga/                # HDL source for FPGA logic (Zynq processing)
+
 │   └── dsp/                 # DSP code for any signal processing IP
+
 /software
+
 │   ├── jetson/              # Code for NVIDIA Jetson (Python/C++ apps)
+
 │   └── drivers/             # Low-level drivers (if any) for boards
+
 ├── docs
+
 │   ├── wiring_diagram.png   # Block diagrams of power/signal flow
+
 │   └── user_manual.pdf      # Extended documentation
+
 └── examples
+
     ├── acquire_example.py   # Example usage scripts
+    
     └── config.yaml          # Sample config files
+    
 Each folder can have its own README describing its contents. For instance, electronics/README.md could detail the signal-chain schematics. Be sure to update the BOM.csv file if parts change, and include datasheets or links for each critical component in this documentation repository.
