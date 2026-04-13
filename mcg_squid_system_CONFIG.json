@@ -1,0 +1,1425 @@
+{
+  "plan": "-   **Electromagnetics:** SQUID sensors (Superconducting Quantum Interference Devices), magnetic shielding (Mu-metal), lock-in amplifier, low-noise pre-amplifiers, RF filter array. Consider cryocoolers for SQUID operation.\n-   **Data Acquisition & Processing:** High-resolution ADC (Analog-to-Digital Converter), FPGA/DSP for real-time signal processing and noise reduction, powerful embedded system (e.g., NVIDIA Jetson or Raspberry Pi 4 with custom accelerator) for AI inference.\n-   **AI Software:** Develop a neural network model (e.g., CNN or RNN) trained on MCG data and various EMI signatures. Implement real-time adaptive filtering, source separation algorithms, and magnetic field mapping for localization.\n-   **Wireless Communication:** High-bandwidth, low-latency wireless module (e.g., WiFi 6E or custom RF link) for data transmission to a control station.\n-   **Power Management:** Cryogenic power supply for SQUIDs, high-capacity battery pack for portable operation, power regulation and distribution circuitry for all components.\n-   **Mechanical/Structural:** Custom cryostat for SQUID sensors, non-magnetic enclosure (e.g., carbon fiber, aluminum) for electronics, multi-axis robotic arm or gantry system for scanning/localization, vibration isolation platform.",
+  "nodes": [
+    {
+      "id": "squid_sensor_array",
+      "name": "SQUID Sensor Array",
+      "pins": [
+        "Analog Output Channels",
+        "Bias Input",
+        "Feedback Input"
+      ],
+      "type": "sensor",
+      "partId": "8cd0b107-1f3c-46d1-bbf6-21996f968691",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/0jXn6u4_Fdp9jUEDdWPDWm-MhYX71TY7PpQjXJ-aZ2Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Ymlvcnhpdi5vcmcv/Y29udGVudC9iaW9y/eGl2L2Vhcmx5LzIw/MTkvMDEvMzEvNTM0/MTA3L0YyLm1lZGl1/bS5naWY.jpeg",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Multi-Channel%20Low-Tc%20SQUID&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "200x200x150mm (sensor head)",
+      "description": "Superconducting Quantum Interference Device array for detecting ultra-weak magnetic fields. Requires cryogenic cooling.",
+      "productName": "Multi-Channel Low-Tc SQUID",
+      "purchaseUrl": "https://www.google.com/search?q=multi-channel+SQUID+system",
+      "estimatedCost": 250000,
+      "boundingBox": {
+        "width": 200,
+        "height": 150,
+        "depth": 200
+      },
+      "position3d": {
+        "x": 0,
+        "y": 422.5,
+        "z": 0
+      }
+    },
+    {
+      "id": "cryocooler",
+      "name": "Cryocooler",
+      "pins": [
+        "240VAC Input",
+        "Control Signals"
+      ],
+      "type": "actuator",
+      "partId": "a8b46300-fa23-4b93-952b-1bda9f1751eb",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/PeZNn5iubaKZfBTg1uutdupbj19HB75gqjR0eWMNTbo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/Ymx1ZWZvcnMuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDI0/LzAyLzIyMTQ0NzM5/L0FMNjMwLTc2OHg0/MzIuanBn",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Closed-Cycle%20Gifford-McMahon%20Cryocooler&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "400x300x300mm",
+      "description": "Provides the necessary cryogenic temperatures for SQUID sensor operation without liquid helium.",
+      "productName": "Closed-Cycle Gifford-McMahon Cryocooler",
+      "purchaseUrl": "https://www.sumitomocryo.com/products/cryocoolers/",
+      "estimatedCost": 75000,
+      "boundingBox": {
+        "width": 400,
+        "height": 300,
+        "depth": 300
+      },
+      "position3d": {
+        "x": 0,
+        "y": 165,
+        "z": 0
+      }
+    },
+    {
+      "id": "pre_amplifier_array",
+      "name": "Low-Noise Pre-Amplifier Array",
+      "pins": [
+        "Analog Inputs (xN)",
+        "Analog Outputs (xN)",
+        "+/-5V Power",
+        "Ground"
+      ],
+      "type": "module",
+      "partId": "2295d0b4-4de0-4d00-95a6-85ba428e7c8e",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/-T0zBf3bV9ovnwmsq1pySQZk8HwcYmbDY4wk1RtrJuk/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL255b0FB/T1N3VWJKa2tsbUwv/cy1sNTAwLmpwZw",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "MCLK,FSYNC,DATA,SDI,VCC,GND,OUT_AC"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=Analog%20Devices%20ADA4807%20Quad%20Pre-Amp%20Module&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "100x60x10mm",
+      "description": "Amplifies extremely weak SQUID signals with minimal added noise before further processing.",
+      "productName": "Analog Devices ADA4807 Quad Pre-Amp Module",
+      "purchaseUrl": "https://www.digikey.com/en/products/detail/analog-devices-inc/ADA4807-4ACPZ-R7/6144805",
+      "estimatedCost": 800,
+      "boundingBox": {
+        "width": 100,
+        "height": 10,
+        "depth": 60
+      },
+      "position3d": {
+        "x": -200,
+        "y": 37.5,
+        "z": 220
+      }
+    },
+    {
+      "id": "rf_filter_array",
+      "name": "RF Filter Array",
+      "pins": [
+        "Input Channels",
+        "Output Channels",
+        "Ground"
+      ],
+      "type": "module",
+      "partId": "f71fa5c9-e7d3-49f9-991d-c7ffe59d3d67",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/BpYQxI2BQrJ62UriCqto-coqZvsQE7iP4ykmmEykoCU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4x/MS5iaWdjb21tZXJj/ZS5jb20vcy03Z2F2/Zy9pbWFnZXMvc3Rl/bmNpbC81MDB4NTAw/L3Byb2R1Y3RzLzU2/Mi81NTIzLzQxNTI4/MDkxMzgyX2EwNTUx/YzdhMWVfb19fMjgy/OTMuMTY3MDk3NjE1/Ni5wbmc_Yz0y",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "GPIO_LASER_EN,GPIO_GALVO_X_PWM,GPIO_GALVO_Y_PWM,ADC_E_STOP,ADC_TRIGGER,UART_BT,SPI_DISPLAY"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=Custom%20EMI%20Filter%20Board&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "80x50x8mm",
+      "description": "Passively filters out high-frequency electromagnetic interference before signal amplification.",
+      "productName": "Custom EMI Filter Board",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=EMI+filter+board",
+      "estimatedCost": 300,
+      "boundingBox": {
+        "width": 80,
+        "height": 8,
+        "depth": 50
+      },
+      "position3d": {
+        "x": -200,
+        "y": 49.5,
+        "z": 220
+      }
+    },
+    {
+      "id": "lock_in_amplifier",
+      "name": "Multi-Channel Lock-in Amplifier",
+      "pins": [
+        "Signal Inputs",
+        "Reference Input",
+        "Demodulated Outputs",
+        "USB",
+        "Ethernet"
+      ],
+      "type": "module",
+      "partId": "234e8af4-d676-4504-9661-4b7d2379a96b",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/68lQl_z1aUPPl7GD5fMZ_QcWwJ0eKhq-UzJ6D8ibdfE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/emhpbnN0LmNvbS9z/aXRlcy9kZWZhdWx0/L2ZpbGVzL3N0eWxl/cy9mcmVlX2FzcGVj/dF9yYXRpb19sYXJn/ZS9wdWJsaWMvaW1h/Z2UvYmxvZy8yMDIy/LTAxL1ByaW5jaXBs/ZV9GaWcxXzEucG5n/P2l0b2s9NEtFRnBH/TG4",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Zurich%20Instruments%20MFLI%20Lock-in%20Amplifier&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "450x300x150mm",
+      "description": "Extracts small signals from noisy backgrounds using phase-sensitive detection. High-speed multi-channel operation.",
+      "productName": "Zurich Instruments MFLI Lock-in Amplifier",
+      "purchaseUrl": "https://www.zhinst.com/us/products/mfli-lock-in-amplifier",
+      "estimatedCost": 35000,
+      "boundingBox": {
+        "width": 450,
+        "height": 150,
+        "depth": 300
+      },
+      "position3d": {
+        "x": 200,
+        "y": 200,
+        "z": 220
+      }
+    },
+    {
+      "id": "high_res_adc",
+      "name": "High-Resolution ADC Module",
+      "pins": [
+        "Analog Inputs",
+        "SPI Data Out",
+        "Clock",
+        "CS",
+        "Power Input"
+      ],
+      "type": "module",
+      "partId": "fc2075bf-325a-4433-bfa5-05abecac7f83",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/LlvMxk1w-7MdPXhzDDSvJ8Ui-qi6hZPyPvGvycbbAP0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tbS5k/aWdpa2V5LmNvbS9W/b2x1bWUwL29wYXNk/YXRhL2QyMjAwMDEv/ZGVyaXZhdGVzLzEv/MDAyLzI0Ni80OTkv/RVZBTC1BRDc2MDYt/NFNEWl9zbWwuanBn",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Analog%20Devices%20AD7768-1%20Evaluation%20Board&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "100x70x12mm",
+      "description": "Converts analog signals from the lock-in amplifier into high-resolution digital data.",
+      "productName": "Analog Devices AD7768-1 Evaluation Board",
+      "purchaseUrl": "https://www.digikey.com/en/products/detail/analog-devices-inc/EVAL-AD7768-1/7222880",
+      "estimatedCost": 500,
+      "boundingBox": {
+        "width": 100,
+        "height": 12,
+        "depth": 70
+      },
+      "position3d": {
+        "x": -200,
+        "y": 61.5,
+        "z": 220
+      }
+    },
+    {
+      "id": "fpga_dsp",
+      "name": "FPGA/DSP Processor",
+      "pins": [
+        "SPI Input",
+        "PCIe Output",
+        "DDR4 RAM",
+        "GPIOs",
+        "Power Input"
+      ],
+      "type": "mcu",
+      "partId": "49c8dd7d-651d-4c42-835b-a351dd740074",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/erLOT4m6FajWYnctapSR9v9z2fzjnTqyl35C4XumxpU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFkb201VzJ3Vkwu/anBn",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "MIPI_CSI_IN_L,MIPI_CSI_IN_R,MIPI_DSI_OUT_L,MIPI_DSI_OUT_R,SPI_CLK,SPI_MOSI,SPI_MISO,SPI_CS,I2C_SDA,I2C_SCL,DEBUG_UART_TX,DEBUG_UART_RX,PWR_3V3,PWR_1V2,GND"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=Xilinx%20Zynq-7000%20SoC%20Module&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "100x80x15mm",
+      "description": "Performs real-time signal conditioning, initial noise reduction, and high-speed data buffering before AI processing.",
+      "productName": "Xilinx Zynq-7000 SoC Module",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=Xilinx+Zynq+module",
+      "estimatedCost": 1200,
+      "boundingBox": {
+        "width": 100,
+        "height": 15,
+        "depth": 80
+      },
+      "position3d": {
+        "x": -200,
+        "y": 75,
+        "z": 220
+      }
+    },
+    {
+      "id": "embedded_system_ai",
+      "name": "AI Embedded System",
+      "pins": [
+        "PCIe Input",
+        "Ethernet",
+        "USB3.0",
+        "GPIO",
+        "Power Input",
+        "CSI/DSI"
+      ],
+      "type": "mcu",
+      "partId": "d606bedb-a178-4981-8ae4-43fad8110b37",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/BTc9usFbnVbIaWxHbrP7c7bklG8gZVG5iFvx9oKi2Us/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnJl/ZGQuaXQvMmg3NGN4/eTZjMHc2MS5wbmc",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "USB3.1,CSI,DSI,PCIe,Ethernet,UART,I2C"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=NVIDIA%20Jetson%20Xavier%20NX&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "70x45x8mm",
+      "description": "Powerful embedded platform for running AI inference models to filter EMI and localize magnetic fields.",
+      "productName": "NVIDIA Jetson Xavier NX",
+      "purchaseUrl": "https://www.amazon.com/NVIDIA-Jetson-Xavier-Developer-Kit/dp/B08553Q195",
+      "estimatedCost": 600,
+      "boundingBox": {
+        "width": 70,
+        "height": 8,
+        "depth": 45
+      },
+      "position3d": {
+        "x": -200,
+        "y": 90,
+        "z": 220
+      }
+    },
+    {
+      "id": "wireless_module",
+      "name": "Wireless Communication Module",
+      "pins": [
+        "PCIe Interface",
+        "Antenna Connectors",
+        "Power Input"
+      ],
+      "type": "module",
+      "partId": "b1fb132e-9c9b-40a7-8a3a-673fcefd508a",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/K3Pjkt1wj01FppFrWbqVbJdGqo0Xhx3L6yijqrx3FkQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFBcVZZSGc4VEwu/anBn",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "PCIe,USB,UART,GPIO,Power,Ground"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=Intel%20AX210%20WiFi%206E%20Module&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "22x30x2.4mm (M.2)",
+      "description": "Provides high-bandwidth, low-latency wireless data transmission to a control station.",
+      "productName": "Intel AX210 WiFi 6E Module",
+      "purchaseUrl": "https://www.amazon.com/Intel-Wireless-AX210-Gig-Wifi/dp/B08RMYL6Q6",
+      "estimatedCost": 30
+    },
+    {
+      "id": "cryogenic_power_supply",
+      "name": "SQUID Cryogenic Power Supply",
+      "pins": [
+        "AC Input",
+        "SQUID Bias Output",
+        "Feedback Current Output"
+      ],
+      "type": "power",
+      "partId": "dcbaefe7-61f1-4dc0-a4ff-bb70e27702c2",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/wU7ONhkY_Oxu06J8yVwZJa5Zoev-SDaocjJ3PPWg4kc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dHJhbnNjYXQuY29t/L21lZGlhL2NhdGFs/b2cvcHJvZHVjdC9j/YWNoZS9mNDRmYTMz/ZGMxOGIzNjFjMGFm/YzI5ODk3MGViNmY5/NS90L2UvdGVrdHJv/bml4LTI0MDAtZnJv/bnQtMTIwMHgxMjAw/LmpwZw",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Keithley%202400%20Series%20SourceMeter&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "250x100x350mm",
+      "description": "Provides ultra-stable, low-noise current and voltage to the SQUID sensors.",
+      "productName": "Keithley 2400 Series SourceMeter",
+      "purchaseUrl": "https://www.tek.com/sourcemeter/2400-series-sourcemeter",
+      "estimatedCost": 7000,
+      "boundingBox": {
+        "width": 250,
+        "height": 350,
+        "depth": 100
+      },
+      "position3d": {
+        "x": -300,
+        "y": 182.5,
+        "z": -220
+      }
+    },
+    {
+      "id": "battery_pack",
+      "name": "High-Capacity Battery Pack",
+      "pins": [
+        "24V Output",
+        "Charging Input"
+      ],
+      "type": "power",
+      "partId": "c4b2910e-03e1-442e-ba9b-55b6624ce6e0",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/-zDD_gLsw3hSMbZg9jZLbvJvmnedB5wgejGz_qteES4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dGltZXVzYnBvd2Vy/LmNvbS9jZG4vc2hv/cC9maWxlcy9Qcm9k/dWN0ZGltZW5zaW9u/b2ZUaW1ldXNiMjRW/MTAwQWhMaUZlUE80/YmF0dGVyeS5qcGc_/dj0xNzQyOTU1MTM3/JndpZHRoPTEwODA",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "Positive,Negative"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=LiFePO4%2024V%20100Ah%20Battery&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "522x240x218mm",
+      "description": "Primary power source for the entire portable system, offering high capacity and cycle life.",
+      "productName": "LiFePO4 24V 100Ah Battery",
+      "purchaseUrl": "https://www.amazon.com/s?k=lifepo4+24v+100ah+battery+pack",
+      "estimatedCost": 1500,
+      "boundingBox": {
+        "width": 522,
+        "height": 218,
+        "depth": 240
+      },
+      "position3d": {
+        "x": 200,
+        "y": 119,
+        "z": -220
+      }
+    },
+    {
+      "id": "power_distribution_unit",
+      "name": "Main Power Distribution Unit",
+      "pins": [
+        "24V Input",
+        "24V Output",
+        "12V Output",
+        "5V Output",
+        "3.3V Output",
+        "Ground"
+      ],
+      "type": "power",
+      "partId": "83a6d40d-6e76-4e1f-807f-df7aa7804d0b",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/Na77Z4UrkSRDR2HlfNDGcXsm9V2YuSkT_o37lrQk8eM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dHdpbnNjaGlwLmNv/bS9pbWFnZS9jYWNo/ZS9jYXRhbG9nL1By/b2R1Y3RzJTIwVHdp/bnMlMjBDaGlwJTIw/U3RvcmUlMjAyMDIw/L1hMNDAxNSUyMFN0/ZXAtRG93biUyMERD/LURDJTIwY29udmVy/dGVyL1hMNDAxNSUy/MFN0ZXAtRG93biUy/MERDLURDJTIwY29u/dmVydGVyJTIwLSUy/MFR3aW5zJTIwQ2hp/cCUyMDMtNTUweDU1/MC5qcGc",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "pins",
+            "value": "VIN+,VIN-,VOUT_12V+,VOUT_12V-,VOUT_5V+,VOUT_5V-"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=Custom%20Multi-Output%20DC-DC%20Converter&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "150x100x25mm",
+      "description": "Regulates and distributes power from the battery to various components (e.g., 24V, 12V, 5V, 3.3V rails).",
+      "productName": "Custom Multi-Output DC-DC Converter",
+      "purchaseUrl": "https://www.digikey.com/en/products/result?keywords=multi-output+dc-dc+converter",
+      "estimatedCost": 400,
+      "boundingBox": {
+        "width": 150,
+        "height": 25,
+        "depth": 100
+      },
+      "position3d": {
+        "x": -200,
+        "y": 107.5,
+        "z": 220
+      }
+    },
+    {
+      "id": "motor_driver",
+      "name": "Multi-Axis Motor Driver",
+      "pins": [
+        "24V Power Input",
+        "Motor Outputs (x4)",
+        "SPI Control Input",
+        "Step/Dir Inputs"
+      ],
+      "type": "actuator",
+      "partId": "bdfe730c-841e-4255-b8c7-95b14f2c1c0e",
+      "category": "electrical",
+      "imageUrl": "https://imgs.search.brave.com/nanPbS2_GKgDpWB6tlQgutR-TQv8FIsuVUNAludyzdY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bmFub3RlYy5jb20v/ZmlsZWFkbWluL19w/cm9jZXNzZWRfLzQv/MS9jc21fbXVsdGkt/YXhpcy1zdGVwcGVy/LW1vdG9yLWNvbnRy/b2xsZXJfNzlkY2Y3/MWQ4MS53ZWJw",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Trinamic%20TMC5160-EVAL%20Multi-Axis%20Controller&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "100x60x15mm",
+      "description": "Controls multiple stepper motors for the robotic arm or gantry system to scan the SQUID sensors.",
+      "productName": "Trinamic TMC5160-EVAL Multi-Axis Controller",
+      "purchaseUrl": "https://www.digikey.com/en/products/detail/trinamic-motion-control-gmbh/TMC5160-EVAL/9726888",
+      "estimatedCost": 200,
+      "boundingBox": {
+        "width": 100,
+        "height": 15,
+        "depth": 60
+      },
+      "position3d": {
+        "x": -200,
+        "y": 127.5,
+        "z": 220
+      }
+    },
+    {
+      "id": "main_base_platform",
+      "name": "Main Base Platform",
+      "type": "structural",
+      "partId": "f8d7a0be-4caf-4e2d-9e4b-311d752be03e",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/rpzCpmxDmlrQZGKeT_B12FREJZGXv58SSh0oXskI4Hg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/ZW5wcmFnLmNvbS9u/ZXctaW1hZ2VzL3By/b2R1Y3RzL3pyL3Z3/L3ptLzQzNng0MzZf/MV8zNTQ0Mi4yMHF5/amJoYmFwLmpwZWc",
+      "material": "Aluminum 5083",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Aluminum%20Plate%205083%20Grade&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "800x600x15mm",
+      "description": "Heavy-duty, non-magnetic aluminum plate forming the base of the entire system for stability and mounting vibration isolation feet.",
+      "productName": "Aluminum Plate 5083 Grade",
+      "purchaseUrl": "https://www.amazon.com/s?k=aluminum+plate+non+magnetic+heavy+duty",
+      "estimatedCost": 250,
+      "boundingBox": {
+        "width": 800,
+        "height": 15,
+        "depth": 600
+      },
+      "position3d": {
+        "x": 0,
+        "y": 7.5,
+        "z": 0
+      }
+    },
+    {
+      "id": "vibration_isolation_feet",
+      "name": "Vibration Isolation Feet",
+      "type": "misc",
+      "partId": "fbc76f99-a0c9-4a5d-a966-4175b7ab6be4",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/GxfhA_qIfORABZUWA8pEkOWhsx27ebt3n8UGCp5mTVQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c3VqYW5pbmR1c3Ry/aWVzLmNvbS9jb250/ZW50L3VwbG9hZHMv/MjAyMi8wMS9hbnRp/LXZpYnJhdGlvbi1y/dWJiZXItbW91bnRz/LTEuanBn",
+      "material": "Rubber and Steel",
+      "quantity": 4,
+      "amazonUrl": "https://www.amazon.com/s?k=M8%20Anti-Vibration%20Mounts&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "M8x50mm",
+      "description": "Rubber/spring isolation feet to minimize external vibrations transmitted to the system.",
+      "productName": "M8 Anti-Vibration Mounts",
+      "purchaseUrl": "https://www.amazon.com/s?k=anti+vibration+mounts+m8",
+      "estimatedCost": 15
+    },
+    {
+      "id": "gantry_vertical_extrusions",
+      "name": "Gantry Vertical Extrusions",
+      "type": "structural",
+      "partId": "65618fdf-87c0-436b-8957-d39e746acc9a",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/oYtnIonsF9v9NSdYl9njGO1t68SliV4wSRz-KBhPapE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly84MDIw/Lm5ldC9tZWRpYS9j/YXRhbG9nL3Byb2R1/Y3QvY2FjaGUvOWQ4/NmEwMDhlOTVkZGE4/NTEwY2IxNDFhMGQz/OWRhNTEvOC8wLzgw/MjBfYWx1bWludW1f/dC1zbG90X3Byb2Zp/bGVfNDAtNDA0MC5q/cGc",
+      "material": "Aluminum",
+      "quantity": 2,
+      "amazonUrl": "https://www.amazon.com/s?k=80x40%20V-Slot%20Aluminum%20Extrusion&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "40x80x500mm",
+      "description": "Sturdy vertical aluminum extrusions to form the uprights of the gantry system.",
+      "productName": "80x40 V-Slot Aluminum Extrusion",
+      "purchaseUrl": "https://www.amazon.com/s?k=8040+vslot+aluminum+extrusion",
+      "estimatedCost": 60
+    },
+    {
+      "id": "gantry_horizontal_extrusion_x",
+      "name": "Gantry X-Axis Extrusion",
+      "type": "structural",
+      "partId": "65618fdf-87c0-436b-8957-d39e746acc9a",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/oYtnIonsF9v9NSdYl9njGO1t68SliV4wSRz-KBhPapE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly84MDIw/Lm5ldC9tZWRpYS9j/YXRhbG9nL3Byb2R1/Y3QvY2FjaGUvOWQ4/NmEwMDhlOTVkZGE4/NTEwY2IxNDFhMGQz/OWRhNTEvOC8wLzgw/MjBfYWx1bWludW1f/dC1zbG90X3Byb2Zp/bGVfNDAtNDA0MC5q/cGc",
+      "material": "Aluminum",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=40x40%20V-Slot%20Aluminum%20Extrusion&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "40x40x700mm",
+      "description": "Horizontal aluminum extrusion for the X-axis movement of the SQUID sensor head.",
+      "productName": "40x40 V-Slot Aluminum Extrusion",
+      "purchaseUrl": "https://www.amazon.com/s?k=4040+vslot+aluminum+extrusion",
+      "estimatedCost": 40,
+      "boundingBox": {
+        "width": 700,
+        "height": 40,
+        "depth": 40
+      },
+      "position3d": {
+        "x": 0,
+        "y": 505,
+        "z": 0
+      }
+    },
+    {
+      "id": "gantry_linear_rail_x",
+      "name": "X-Axis Linear Rail",
+      "type": "mechanism",
+      "partId": "f65d0915-0ece-482a-89b7-09cba0d3fd81",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/tRcPXg87NqMt03FTdrQEk-25K82pWKXYnpg7iX2c9hQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdG92/aWwuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIzLzA2L0hH/LVNlcmllcy1SYWls/LTgwMHg4MDAtMi02/MDB4NjAwLmpwZw",
+      "material": "Steel",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=HIWIN%20HG%20Series%20Linear%20Rail&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "700x20x15mm",
+      "description": "Precision linear guide rail for smooth and accurate X-axis motion.",
+      "productName": "HIWIN HG Series Linear Rail",
+      "purchaseUrl": "https://www.amazon.com/s?k=hiwin+hg+linear+rail+700mm",
+      "estimatedCost": 120,
+      "boundingBox": {
+        "width": 700,
+        "height": 15,
+        "depth": 20
+      },
+      "position3d": {
+        "x": 0,
+        "y": 505,
+        "z": 0
+      }
+    },
+    {
+      "id": "gantry_linear_carriage_x",
+      "name": "X-Axis Linear Carriage",
+      "type": "mechanism",
+      "partId": "48338316-ae71-4949-9e44-f18e3f4a0f92",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/JEbZTyVsN_vBwHUqFR7vElB405qveOPXk7SZtgb3xYE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5wbGF0aW51bS1p/bnRlcm5hdGlvbmFs/LnN0b3JlLzIwMjUv/MTIvMTgxNzU3NTIv/MjU3MDc3X1Byb2R1/Y3QuanBn",
+      "material": "Steel",
+      "quantity": 2,
+      "amazonUrl": "https://www.amazon.com/s?k=HIWIN%20HGH20CA%20Linear%20Block&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "70x48x30mm",
+      "description": "Linear bearing block to move along the X-axis rail.",
+      "productName": "HIWIN HGH20CA Linear Block",
+      "purchaseUrl": "https://www.amazon.com/s?k=hiwin+hgh20ca+linear+block",
+      "estimatedCost": 60,
+      "boundingBox": {
+        "width": 70,
+        "height": 30,
+        "depth": 48
+      },
+      "position3d": {
+        "x": 0,
+        "y": 522.5,
+        "z": 0
+      }
+    },
+    {
+      "id": "gantry_lead_screw_x",
+      "name": "X-Axis Lead Screw",
+      "type": "mechanism",
+      "partId": "b18b667a-d989-4433-9abf-178faec3019a",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/2vx4Tn2F_xwAXdRYAwZpAUsBIqH1wnZojzlyHGrtams/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFoOGlocWZUSUwu/anBn",
+      "material": "Stainless Steel",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=T8%20Lead%20Screw%202mm%20Pitch&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "8x700mm",
+      "description": "Lead screw for precise X-axis positioning, driven by a stepper motor.",
+      "productName": "T8 Lead Screw 2mm Pitch",
+      "purchaseUrl": "https://www.amazon.com/s?k=t8+lead+screw+700mm",
+      "estimatedCost": 20
+    },
+    {
+      "id": "gantry_lead_screw_nut_x",
+      "name": "X-Axis Lead Screw Nut",
+      "type": "mechanism",
+      "partId": "1d8ffb2c-7a5a-452f-8797-2c8988a17f9a",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/DLmgMzvr6ieujt_6tpTyNemzKEpfIrtTfmTowkl0U3I/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4x/MS5iaWdjb21tZXJj/ZS5jb20vcy0zZmQz/bWQxZ2hzL2ltYWdl/cy9zdGVuY2lsLzUw/MHg2NTkvcHJvZHVj/dHMvMzY0MzQvMjIx/MjkvQjA1MjlfXzQx/Nzg5LjE3MzQ0MzU1/NzYuanBnP2M9Mg",
+      "material": "Brass",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=T8%20Anti-Backlash%20Lead%20Screw%20Nut&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "22x15x10mm",
+      "description": "Anti-backlash nut for accurate and repeatable X-axis motion.",
+      "productName": "T8 Anti-Backlash Lead Screw Nut",
+      "purchaseUrl": "https://www.amazon.com/s?k=t8+anti+backlash+nut",
+      "estimatedCost": 10
+    },
+    {
+      "id": "gantry_lead_screw_coupler_x",
+      "name": "X-Axis Lead Screw Coupler",
+      "type": "mechanism",
+      "partId": "02eac22f-9eba-4245-b92f-51b66ada9664",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/16PG13vb6CjetCwnEYf7DNDgTptjY-_M8DB3Fb6mrUM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzcxaE00SkNyWjdM/LmpwZw",
+      "material": "Aluminum Alloy",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Flexible%20Shaft%20Coupler%205mm%20to%208mm&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "19x25mm",
+      "description": "Connects the X-axis stepper motor to the lead screw.",
+      "productName": "Flexible Shaft Coupler 5mm to 8mm",
+      "purchaseUrl": "https://www.amazon.com/s?k=flexible+shaft+coupler+5mm+8mm",
+      "estimatedCost": 5
+    },
+    {
+      "id": "electronics_enclosure",
+      "name": "Main Electronics Enclosure",
+      "type": "enclosure",
+      "partId": "0502aecf-dbbb-4160-8fb3-007218481206",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/-tu0RCXwKUzeMX6oGkVOxf3cOBlaB-vZDZixPYOCaYA/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMucmFwaWRvbmxp/bmUuY29tL2NhdGFs/b2d1ZWltYWdlcy9t/b2R1bGUvNTEvNjgv/bTUxNjg4NXAwMXdz/LmpwZw",
+      "material": "Aluminum",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Hammond%201455%20Series%20Aluminum%20Enclosure&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "300x200x100mm",
+      "description": "Non-magnetic aluminum enclosure housing the pre-amplifiers, ADC, FPGA, AI system, and power distribution.",
+      "productName": "Hammond 1455 Series Aluminum Enclosure",
+      "purchaseUrl": "https://www.amazon.com/s?k=hammond+1455+aluminum+enclosure+large",
+      "estimatedCost": 120,
+      "boundingBox": {
+        "width": 300,
+        "height": 100,
+        "depth": 200
+      },
+      "position3d": {
+        "x": -200,
+        "y": 65,
+        "z": 220
+      }
+    },
+    {
+      "id": "mu_metal_shielding_panels",
+      "name": "Mu-Metal Shielding Panels",
+      "type": "enclosure",
+      "partId": "a5fc5149-ad82-4f0b-a6a7-378080a87277",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/ORQ48gCc3ujEqRyheJYZo0ejwLd3s-YXbKVgFUYNz6M/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9iMjkx/MDM5MC5zbXVzaGNk/bi5jb20vMjkxMDM5/MC93cC1jb250ZW50/L3VwbG9hZHMvYmIt/cGx1Z2luL2NhY2hl/L0ZsYXRQYXJ0TG9j/YXRpb24tc3F1YXJl/LWEzOTM5MWU1OTgw/MTljNTM1YWUyZmE0/ZWU5OWYyOWI1LThh/Zzc5cDRjMzZibS5w/bmc_bG9zc3k9MiZz/dHJpcD0xJndlYnA9/MQ",
+      "material": "Mu-metal alloy",
+      "quantity": 4,
+      "amazonUrl": "https://www.amazon.com/s?k=Mu-metal%20sheet%20stock&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "200x200x0.5mm",
+      "description": "High-permeability alloy panels used to passively shield the SQUID sensors from external magnetic interference.",
+      "productName": "Mu-metal sheet stock",
+      "purchaseUrl": "https://www.amazon.com/s?k=mu-metal+sheet",
+      "estimatedCost": 300
+    },
+    {
+      "id": "squid_cryostat_housing_custom",
+      "name": "SQUID Cryostat Outer Housing",
+      "type": "enclosure",
+      "partId": "24367245-ddfe-4745-a0ea-619c57812ac9",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/0DZ5y4WuhlhG1dtKI5eWm7wm9ux8pDJBS8LUrgERlk8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Y2hpbmEtY29tcG9z/aXRlcy5uZXQvdXBs/b2Fkcy8yMDIyOTEz/Ny9zbWFsbC9nb29k/LXByaWNlLWN1c3Rv/bS1jYXJib24tZmli/ZXItZmFicmljYXRp/b24xMDI0NjU1NjEx/Ny5qcGc",
+      "material": "Carbon Fiber",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Custom%20Fabricated%20Carbon%20Fiber%20Housing&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "250x250x200mm",
+      "description": "Lightweight, non-magnetic carbon fiber housing for the SQUID sensor array and integrated cryocooler.",
+      "productName": "Custom Fabricated Carbon Fiber Housing",
+      "purchaseUrl": "https://www.google.com/search?q=custom+carbon+fiber+fabrication",
+      "estimatedCost": 1500,
+      "boundingBox": {
+        "width": 250,
+        "height": 200,
+        "depth": 250
+      },
+      "position3d": {
+        "x": 0,
+        "y": 417.5,
+        "z": 0
+      }
+    },
+    {
+      "id": "m5_t_nuts",
+      "name": "M5 T-Nuts",
+      "type": "misc",
+      "partId": "f8e544b9-11f5-4934-8136-82d4b69e3b81",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/Im0WL9cLF9brWsnXl4I71eGIq-6B7CGFpBMBMX_ERVc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL200c0FB/ZVN3WkE5cEQxcnUv/cy1sNTAwLmpwZw",
+      "material": "Nickel-plated Carbon Steel",
+      "quantity": 50,
+      "amazonUrl": "https://www.amazon.com/s?k=M5%20T-Slot%20Nuts%20for%2040%20Series&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "20x10x5mm",
+      "description": "Used to connect components to the aluminum extrusions.",
+      "productName": "M5 T-Slot Nuts for 40 Series",
+      "purchaseUrl": "https://www.amazon.com/s?k=m5+t+slot+nuts+4040",
+      "estimatedCost": 0.2
+    },
+    {
+      "id": "m5_bolts",
+      "name": "M5 Bolts",
+      "type": "misc",
+      "partId": "27701d38-3aab-438a-bdef-b6da5e870e6f",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/aeoCAfHXOqOsleGmYqYna5ggOM00ms8B1e6lN-mJ4ss/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL3l3QUFB/ZVN3bmR0b0JmTFUv/cy1sNTAwLmpwZw",
+      "material": "Stainless Steel",
+      "quantity": 50,
+      "amazonUrl": "https://www.amazon.com/s?k=M5%20Hex%20Socket%20Cap%20Screws&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "M5x10mm",
+      "description": "Fasteners for assembling the gantry structure and mounting components.",
+      "productName": "M5 Hex Socket Cap Screws",
+      "purchaseUrl": "https://www.amazon.com/s?k=m5+hex+socket+cap+screws",
+      "estimatedCost": 0.1
+    },
+    {
+      "id": "m3_standoffs",
+      "name": "M3 PCB Standoffs",
+      "type": "misc",
+      "partId": "0e4d8324-f165-4f4e-94db-59cb802f1f86",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/9_FYWNFJal206iQsYGU_n_JKO5bADpzjH2p--K7KETU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL1lxUUFB/T1N3fmE1bUI5a3cv/cy1sNTAwLmpwZw",
+      "material": "Brass",
+      "quantity": 30,
+      "amazonUrl": "https://www.amazon.com/s?k=M3%20Brass%20Hex%20Standoffs&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "M3x10mm",
+      "description": "Used to mount circuit boards inside the electronics enclosure.",
+      "productName": "M3 Brass Hex Standoffs",
+      "purchaseUrl": "https://www.amazon.com/s?k=m3+brass+hex+standoffs",
+      "estimatedCost": 0.5
+    },
+    {
+      "id": "electronics_board_mounts_3d",
+      "name": "Electronics Board Mounts",
+      "type": "3d_printed",
+      "partId": "b6a46723-021e-450b-8156-8b0c449633d1",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/zOaHGxx_bHJzlgv9bnNzAnCuYYNDaSOMaVPuMm_lPuo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjExdHg1c3ZTQkwu/anBn",
+      "material": "PETG",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Main%20Electronics%20Mount&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "150x100x20mm",
+      "description": "Custom mounts designed to securely hold specific PCBs (pre-amp, ADC, FPGA, AI system) within the electronics enclosure.",
+      "productName": "Main Electronics Mount",
+      "purchaseUrl": "https://www.amazon.com/s?k=3d+printer+filament+petg",
+      "estimatedCost": 5,
+      "printSettings": "0.2mm layer height, 25% infill, no supports"
+    },
+    {
+      "id": "squid_sensor_mount_3d",
+      "name": "SQUID Sensor Mount",
+      "type": "3d_printed",
+      "partId": "5f28e824-1155-440b-bd05-6bdc1fc692b3",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/8qC2QStm4kowheUFS0gaWeTAyXA8zeG6u_p4deKqN_E/rs:fit:0:180:1:0/g:ce/aHR0cHM6Ly93d3cu/cHJlc2Vucy5kZS9m/aWxlYWRtaW4vX3By/b2Nlc3NlZF8vMS8y/L2NzbV8xX0VPTS1w/SC1taW5pX3Byb2R1/Y3RfMzY1OTc4YjNh/NS5qcGc",
+      "material": "PETG",
+      "quantity": 1,
+      "research": {
+        "specs": [
+          {
+            "label": "print_settings",
+            "value": "0.2mm layer height, 20% infill"
+          }
+        ]
+      },
+      "amazonUrl": "https://www.amazon.com/s?k=pH%20Sensor%20Mount&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "150x150x50mm",
+      "description": "Internal mount to precisely position the SQUID sensor array within its cryostat housing, non-magnetic.",
+      "productName": "pH Sensor Mount",
+      "purchaseUrl": "https://www.amazon.com/s?k=3d+printer+filament+petg",
+      "estimatedCost": 10,
+      "printSettings": "0.2mm layer height, 50% infill, tree supports",
+      "boundingBox": {
+        "width": 150,
+        "height": 50,
+        "depth": 150
+      },
+      "position3d": {
+        "x": 0,
+        "y": 442.5,
+        "z": 0
+      }
+    },
+    {
+      "id": "cryocooler_bracket_3d",
+      "name": "Cryocooler Mounting Bracket",
+      "type": "3d_printed",
+      "partId": "46017331-b64a-45c8-a5d4-d4ad421081ca",
+      "category": "mechanical",
+      "material": "ABS",
+      "quantity": 1,
+      "amazonUrl": "https://www.amazon.com/s?k=Cryocooler%20Mounting%20Plate&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "120x80x40mm",
+      "description": "Custom bracket to securely mount the cryocooler to the main gantry structure or dedicated platform.",
+      "productName": "Cryocooler Mounting Plate",
+      "purchaseUrl": "https://www.amazon.com/s?k=3d+printer+filament+abs",
+      "estimatedCost": 8,
+      "printSettings": "0.25mm layer height, 75% infill, brim",
+      "boundingBox": {
+        "width": 120,
+        "height": 40,
+        "depth": 80
+      },
+      "position3d": {
+        "x": 0,
+        "y": 310,
+        "z": 0
+      }
+    },
+    {
+      "id": "mu_metal_panel_holders_3d",
+      "name": "Mu-metal Panel Holders",
+      "type": "3d_printed",
+      "partId": "ae4860ad-dd3d-4c6d-8df7-ba570b3b63e4",
+      "category": "mechanical",
+      "material": "PLA",
+      "quantity": 4,
+      "amazonUrl": "https://www.amazon.com/s?k=Mu-metal%20Panel%20Holders&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "50x20x10mm",
+      "description": "Small clips or frames to hold the Mu-metal shielding panels in place around the SQUID sensor head.",
+      "productName": "",
+      "purchaseUrl": "https://www.amazon.com/s?k=3d+printer+filament+pla",
+      "estimatedCost": 2,
+      "printSettings": "0.2mm layer height, 20% infill"
+    },
+    {
+      "id": "cable_management_clips_3d",
+      "name": "Cable Management Clips",
+      "type": "3d_printed",
+      "partId": "a5c6b3b4-a455-43ad-9df4-c679ba94b5db",
+      "category": "mechanical",
+      "imageUrl": "https://imgs.search.brave.com/cE8RGwuf-6IVXvUSpv1-gcJFg4-1Y5FGu-2X2VONr6U/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bHR0c3RvcmUuY29t/L2Nkbi9zaG9wL2Zp/bGVzL01DTVByb2R1/Y3RJbWFnZXNfQWRq/dXN0ZWQtQ2FibGVU/aWVIb2xkZXJzLnBu/Zz92PTE3NDQyMzEw/NzUmd2lkdGg9NTMz",
+      "material": "PLA",
+      "quantity": 20,
+      "amazonUrl": "https://www.amazon.com/s?k=Cable%20Management%20Clips&linkCode=ll2&tag=blueprintam-20&linkId=4ccf4163514d07f9bf547ac1c23fd3e0&language=en_US&ref_=as_li_ss_tl",
+      "dimensions": "30x10x10mm",
+      "description": "Custom cable clips to route and secure signal and power cables, minimizing movement and potential EMI.",
+      "productName": "Cable Management Clips",
+      "purchaseUrl": "https://www.amazon.com/s?k=3d+printer+filament+pla",
+      "estimatedCost": 0.5,
+      "printSettings": "0.2mm layer height, 15% infill"
+    }
+  ],
+  "notes": [
+    "human heart magnetic field",
+    "MCG with SQUID sensors",
+    "scan surrounding area",
+    "detect slightest EM change",
+    "AI filter EMI",
+    "precisely locate position",
+    "wirelessly"
+  ],
+  "projectName": "MCG SQUID System",
+  "originalPrompt": "A sophisticated Device that can measure the Human heart's magnetic field, often measured via magnetocardiography (MCG) with SQUID sensors, is roughly 100 times stronger than the brain's magnetic field, all wirelessly.And also the device should scan the surrounding area and when threre is a Slightest change in the electromagnetic field it can detect that and also it should have a AI software that can filter off all other electromagnetic interference and precisely able to detect the human heart's electromagnetic field and locate the exact position.",
+  "instructionSteps": [
+    {
+      "id": "fabricate",
+      "subSteps": [
+        {
+          "id": "fabricate_1",
+          "title": "3D Print all custom components",
+          "partIds": [
+            "electronics_board_mounts_3d",
+            "squid_sensor_mount_3d",
+            "cryocooler_bracket_3d",
+            "mu_metal_panel_holders_3d",
+            "cable_management_clips_3d"
+          ]
+        },
+        {
+          "id": "fabricate_2",
+          "title": "Prepare Main Base Platform and Gantry Extrusions",
+          "partIds": [
+            "main_base_platform",
+            "gantry_vertical_extrusions",
+            "gantry_horizontal_extrusion_x"
+          ]
+        },
+        {
+          "id": "fabricate_3",
+          "title": "Drill and tap mounting holes on Main Base Platform and Electronics Enclosure",
+          "partIds": [
+            "main_base_platform",
+            "electronics_enclosure"
+          ]
+        },
+        {
+          "id": "fabricate_4",
+          "title": "Fabricate/Assemble SQUID Cryostat Outer Housing and prepare Mu-Metal Panels",
+          "partIds": [
+            "squid_cryostat_housing_custom",
+            "mu_metal_shielding_panels"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wire",
+      "subSteps": [
+        {
+          "id": "wire_1",
+          "title": "Wire Main Power Distribution Unit and Battery Pack",
+          "partIds": [
+            "battery_pack",
+            "power_distribution_unit"
+          ]
+        },
+        {
+          "id": "wire_2",
+          "title": "Connect Pre-Amplifier, RF Filter, Lock-in Amplifier, and ADC modules",
+          "partIds": [
+            "pre_amplifier_array",
+            "rf_filter_array",
+            "lock_in_amplifier",
+            "high_res_adc"
+          ]
+        },
+        {
+          "id": "wire_3",
+          "title": "Connect FPGA/DSP, AI Embedded System, and Wireless Module",
+          "partIds": [
+            "fpga_dsp",
+            "embedded_system_ai",
+            "wireless_module"
+          ]
+        },
+        {
+          "id": "wire_4",
+          "title": "Wire Multi-Axis Motor Driver and Cryocooler power",
+          "partIds": [
+            "motor_driver",
+            "cryocooler"
+          ]
+        },
+        {
+          "id": "wire_5",
+          "title": "Connect SQUID Cryogenic Power Supply to SQUID Sensor Array",
+          "partIds": [
+            "cryogenic_power_supply",
+            "squid_sensor_array"
+          ]
+        },
+        {
+          "id": "wire_6",
+          "title": "Perform initial continuity and power rail voltage checks",
+          "partIds": [
+            "power_distribution_unit",
+            "embedded_system_ai",
+            "fpga_dsp",
+            "high_res_adc",
+            "pre_amplifier_array",
+            "wireless_module",
+            "motor_driver"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bringup",
+      "subSteps": [
+        {
+          "id": "bringup_1",
+          "title": "Install OS, drivers, and necessary libraries on AI Embedded System",
+          "partIds": [
+            "embedded_system_ai"
+          ]
+        },
+        {
+          "id": "bringup_2",
+          "title": "Load initial firmware/bitstream onto FPGA/DSP Processor",
+          "partIds": [
+            "fpga_dsp"
+          ]
+        },
+        {
+          "id": "bringup_3",
+          "title": "Verify communication between ADC, FPGA, and AI Embedded System",
+          "partIds": [
+            "high_res_adc",
+            "fpga_dsp",
+            "embedded_system_ai"
+          ]
+        },
+        {
+          "id": "bringup_4",
+          "title": "Test motor driver communication and basic motor control",
+          "partIds": [
+            "motor_driver"
+          ]
+        },
+        {
+          "id": "bringup_5",
+          "title": "Configure Wireless Communication Module and verify network connectivity",
+          "partIds": [
+            "wireless_module"
+          ]
+        },
+        {
+          "id": "bringup_6",
+          "title": "Initialize SQUID Cryogenic Power Supply and Cryocooler, verify cooling operation",
+          "partIds": [
+            "cryogenic_power_supply",
+            "cryocooler"
+          ]
+        },
+        {
+          "id": "bringup_7",
+          "title": "Perform initial testing of SQUID Sensor Array and Lock-in Amplifier (without EMI filtering)",
+          "partIds": [
+            "squid_sensor_array",
+            "pre_amplifier_array",
+            "rf_filter_array",
+            "lock_in_amplifier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "assemble",
+      "subSteps": [
+        {
+          "id": "assemble_1",
+          "title": "Mount Vibration Isolation Feet to Main Base Platform",
+          "partIds": [
+            "main_base_platform",
+            "vibration_isolation_feet"
+          ]
+        },
+        {
+          "id": "assemble_2",
+          "title": "Assemble Gantry System (verticals, X-axis extrusion, linear rail, lead screw)",
+          "partIds": [
+            "gantry_vertical_extrusions",
+            "gantry_horizontal_extrusion_x",
+            "gantry_linear_rail_x",
+            "gantry_linear_carriage_x",
+            "gantry_lead_screw_x",
+            "gantry_lead_screw_nut_x",
+            "gantry_lead_screw_coupler_x",
+            "m5_t_nuts",
+            "m5_bolts"
+          ]
+        },
+        {
+          "id": "assemble_3",
+          "title": "Mount SQUID Cryostat Housing with Cryocooler to Gantry X-Axis Carriage",
+          "partIds": [
+            "squid_cryostat_housing_custom",
+            "cryocooler",
+            "gantry_linear_carriage_x",
+            "cryocooler_bracket_3d"
+          ]
+        },
+        {
+          "id": "assemble_4",
+          "title": "Integrate SQUID Sensor Array and Mu-Metal Shielding into Cryostat Housing",
+          "partIds": [
+            "squid_sensor_array",
+            "squid_sensor_mount_3d",
+            "mu_metal_shielding_panels",
+            "mu_metal_panel_holders_3d"
+          ]
+        },
+        {
+          "id": "assemble_5",
+          "title": "Mount Electronics Enclosure to Main Base Platform and install internal PCBs",
+          "partIds": [
+            "electronics_enclosure",
+            "main_base_platform",
+            "pre_amplifier_array",
+            "rf_filter_array",
+            "lock_in_amplifier",
+            "high_res_adc",
+            "fpga_dsp",
+            "embedded_system_ai",
+            "wireless_module",
+            "power_distribution_unit",
+            "motor_driver",
+            "electronics_board_mounts_3d",
+            "m3_standoffs"
+          ]
+        },
+        {
+          "id": "assemble_6",
+          "title": "Route all power and data cables using Cable Management Clips",
+          "partIds": [
+            "cable_management_clips_3d"
+          ]
+        },
+        {
+          "id": "assemble_7",
+          "title": "Connect external power supplies (battery pack, cryogenic power supply) and final system checks",
+          "partIds": [
+            "battery_pack",
+            "cryogenic_power_supply"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectDescription": "A sophisticated Magnetocardiography (MCG) system uses a SQUID sensor array within a cryostat to wirelessly measure the human heart's magnetic field. It employs a multi-axis gantry for precise scanning, while an integrated AI embedded system filters electromagnetic interference and accurately locates the heart's position.",
+  "instructionPreamble": {
+    "tools": [
+      "3D printer (PETG, ABS, PLA capable)",
+      "M5 hex key set",
+      "M3 hex key set",
+      "Small Phillips head screwdriver set",
+      "Wire strippers",
+      "Crimping tool (for custom power/data cables)",
+      "Soldering iron with fine tip",
+      "Multimeter (for continuity and voltage checks)",
+      "Oscilloscope (for signal verification)",
+      "Deburring tool",
+      "Drill press or hand drill with various bits",
+      "Tap and die set (M3, M5, M8)",
+      "Precision measuring tools (calipers, ruler)",
+      "Heat gun (for heat shrink tubing)",
+      "Cable ties and management tools"
+    ],
+    "assumptions": [
+      "Familiarity with advanced electrical and mechanical assembly techniques",
+      "Experience with high-precision motion control systems (gantry/robotics)",
+      "Proficiency in embedded Linux for NVIDIA Jetson and FPGA programming (VHDL/Verilog)",
+      "Basic understanding of cryogenic systems and SQUID sensor handling",
+      "Access to an EMI-controlled environment for sensitive signal testing",
+      "Prior experience with setting up and calibrating complex data acquisition systems"
+    ]
+  },
+  "electricalConnections": [
+    {
+      "type": "power",
+      "source": "battery_pack",
+      "target": "power_distribution_unit",
+      "voltage": "24V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "cryocooler",
+      "voltage": "240VAC"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "cryogenic_power_supply",
+      "voltage": "AC Input"
+    },
+    {
+      "type": "power",
+      "source": "cryogenic_power_supply",
+      "target": "squid_sensor_array",
+      "voltage": "Variable V/mA"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "embedded_system_ai",
+      "voltage": "19V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "fpga_dsp",
+      "voltage": "5V, 12V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "high_res_adc",
+      "voltage": "5V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "lock_in_amplifier",
+      "voltage": "AC Input"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "pre_amplifier_array",
+      "voltage": "+/-5V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "rf_filter_array",
+      "voltage": "No power"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "wireless_module",
+      "voltage": "3.3V"
+    },
+    {
+      "type": "power",
+      "source": "power_distribution_unit",
+      "target": "motor_driver",
+      "voltage": "24V"
+    },
+    {
+      "type": "data",
+      "source": "squid_sensor_array",
+      "target": "pre_amplifier_array",
+      "protocol": "Analog",
+      "sourcePin": "Analog Output Channels",
+      "targetPin": "Analog Inputs (xN)"
+    },
+    {
+      "type": "data",
+      "source": "pre_amplifier_array",
+      "target": "rf_filter_array",
+      "protocol": "Analog",
+      "sourcePin": "Analog Outputs (xN)",
+      "targetPin": "Input Channels"
+    },
+    {
+      "type": "data",
+      "source": "rf_filter_array",
+      "target": "lock_in_amplifier",
+      "protocol": "Analog",
+      "sourcePin": "Output Channels",
+      "targetPin": "Signal Inputs"
+    },
+    {
+      "type": "data",
+      "source": "lock_in_amplifier",
+      "target": "high_res_adc",
+      "protocol": "Analog",
+      "sourcePin": "Demodulated Outputs",
+      "targetPin": "Analog Inputs"
+    },
+    {
+      "type": "data",
+      "source": "high_res_adc",
+      "target": "fpga_dsp",
+      "protocol": "SPI",
+      "sourcePin": "SPI Data Out",
+      "targetPin": "SPI Input"
+    },
+    {
+      "type": "data",
+      "source": "fpga_dsp",
+      "target": "embedded_system_ai",
+      "protocol": "PCIe",
+      "sourcePin": "PCIe Output",
+      "targetPin": "PCIe Input"
+    },
+    {
+      "type": "data",
+      "source": "embedded_system_ai",
+      "target": "wireless_module",
+      "protocol": "PCIe",
+      "sourcePin": "PCIe Interface",
+      "targetPin": "PCIe Interface"
+    },
+    {
+      "type": "data",
+      "source": "embedded_system_ai",
+      "target": "motor_driver",
+      "protocol": "SPI/GPIO",
+      "sourcePin": "GPIO",
+      "targetPin": "SPI Control Input"
+    }
+  ],
+  "mechanicalConnections": [
+    {
+      "label": "mounted with M8 bolts",
+      "source": "main_base_platform",
+      "target": "vibration_isolation_feet"
+    },
+    {
+      "label": "mounted with M5 bolts and T-nuts",
+      "source": "main_base_platform",
+      "target": "gantry_vertical_extrusions"
+    },
+    {
+      "label": "connected with M5 bolts and corner brackets",
+      "source": "gantry_vertical_extrusions",
+      "target": "gantry_horizontal_extrusion_x"
+    },
+    {
+      "label": "mounted with M3 screws",
+      "source": "gantry_horizontal_extrusion_x",
+      "target": "gantry_linear_rail_x"
+    },
+    {
+      "label": "slides on",
+      "source": "gantry_linear_rail_x",
+      "target": "gantry_linear_carriage_x"
+    },
+    {
+      "label": "mounted with bearings at ends",
+      "source": "gantry_horizontal_extrusion_x",
+      "target": "gantry_lead_screw_x"
+    },
+    {
+      "label": "attached to",
+      "source": "gantry_linear_carriage_x",
+      "target": "gantry_lead_screw_nut_x"
+    },
+    {
+      "label": "connected to",
+      "source": "gantry_lead_screw_x",
+      "target": "gantry_lead_screw_coupler_x"
+    },
+    {
+      "label": "drives (via NEMA motor)",
+      "source": "gantry_lead_screw_coupler_x",
+      "target": "motor_driver"
+    },
+    {
+      "label": "mounted to base",
+      "source": "main_base_platform",
+      "target": "electronics_enclosure"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "pre_amplifier_array"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "rf_filter_array"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "lock_in_amplifier"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "high_res_adc"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "fpga_dsp"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "embedded_system_ai"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "wireless_module"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "power_distribution_unit"
+    },
+    {
+      "label": "mounted inside with electronics_board_mounts_3d",
+      "source": "electronics_enclosure",
+      "target": "motor_driver"
+    },
+    {
+      "label": "mounted via squid_cryostat_mount_3d",
+      "source": "gantry_linear_carriage_x",
+      "target": "squid_cryostat_housing_custom"
+    },
+    {
+      "label": "housed within via squid_sensor_mount_3d",
+      "source": "squid_cryostat_housing_custom",
+      "target": "squid_sensor_array"
+    },
+    {
+      "label": "integrated/mounted via cryocooler_bracket_3d",
+      "source": "squid_cryostat_housing_custom",
+      "target": "cryocooler"
+    },
+    {
+      "label": "surrounded by via mu_metal_panel_holders_3d",
+      "source": "squid_cryostat_housing_custom",
+      "target": "mu_metal_shielding_panels"
+    },
+    {
+      "label": "held by",
+      "source": "mu_metal_shielding_panels",
+      "target": "mu_metal_panel_holders_3d"
+    },
+    {
+      "label": "uses for internal cable routing",
+      "source": "electronics_enclosure",
+      "target": "cable_management_clips_3d"
+    },
+    {
+      "label": "uses for external cable routing",
+      "source": "gantry_vertical_extrusions",
+      "target": "cable_management_clips_3d"
+    },
+    {
+      "label": "uses for external cable routing",
+      "source": "squid_cryostat_housing_custom",
+      "target": "cable_management_clips_3d"
+    }
+  ],
+  "projectId": "b998fd74-083c-41da-b56f-8e377e39e1e2"
+}

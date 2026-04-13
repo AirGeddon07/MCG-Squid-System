@@ -1,0 +1,138 @@
+[
+  {
+    "type": "power",
+    "source": "battery_pack",
+    "target": "power_distribution_unit",
+    "voltage": "24V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "cryocooler",
+    "voltage": "240VAC"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "cryogenic_power_supply",
+    "voltage": "AC Input"
+  },
+  {
+    "type": "power",
+    "source": "cryogenic_power_supply",
+    "target": "squid_sensor_array",
+    "voltage": "Variable V/mA"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "embedded_system_ai",
+    "voltage": "19V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "fpga_dsp",
+    "voltage": "5V, 12V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "high_res_adc",
+    "voltage": "5V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "lock_in_amplifier",
+    "voltage": "AC Input"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "pre_amplifier_array",
+    "voltage": "+/-5V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "rf_filter_array",
+    "voltage": "No power"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "wireless_module",
+    "voltage": "3.3V"
+  },
+  {
+    "type": "power",
+    "source": "power_distribution_unit",
+    "target": "motor_driver",
+    "voltage": "24V"
+  },
+  {
+    "type": "data",
+    "source": "squid_sensor_array",
+    "target": "pre_amplifier_array",
+    "protocol": "Analog",
+    "sourcePin": "Analog Output Channels",
+    "targetPin": "Analog Inputs (xN)"
+  },
+  {
+    "type": "data",
+    "source": "pre_amplifier_array",
+    "target": "rf_filter_array",
+    "protocol": "Analog",
+    "sourcePin": "Analog Outputs (xN)",
+    "targetPin": "Input Channels"
+  },
+  {
+    "type": "data",
+    "source": "rf_filter_array",
+    "target": "lock_in_amplifier",
+    "protocol": "Analog",
+    "sourcePin": "Output Channels",
+    "targetPin": "Signal Inputs"
+  },
+  {
+    "type": "data",
+    "source": "lock_in_amplifier",
+    "target": "high_res_adc",
+    "protocol": "Analog",
+    "sourcePin": "Demodulated Outputs",
+    "targetPin": "Analog Inputs"
+  },
+  {
+    "type": "data",
+    "source": "high_res_adc",
+    "target": "fpga_dsp",
+    "protocol": "SPI",
+    "sourcePin": "SPI Data Out",
+    "targetPin": "SPI Input"
+  },
+  {
+    "type": "data",
+    "source": "fpga_dsp",
+    "target": "embedded_system_ai",
+    "protocol": "PCIe",
+    "sourcePin": "PCIe Output",
+    "targetPin": "PCIe Input"
+  },
+  {
+    "type": "data",
+    "source": "embedded_system_ai",
+    "target": "wireless_module",
+    "protocol": "PCIe",
+    "sourcePin": "PCIe Interface",
+    "targetPin": "PCIe Interface"
+  },
+  {
+    "type": "data",
+    "source": "embedded_system_ai",
+    "target": "motor_driver",
+    "protocol": "SPI/GPIO",
+    "sourcePin": "GPIO",
+    "targetPin": "SPI Control Input"
+  }
+]

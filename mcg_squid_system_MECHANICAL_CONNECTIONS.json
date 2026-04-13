@@ -1,0 +1,137 @@
+[
+  {
+    "label": "mounted with M8 bolts",
+    "source": "main_base_platform",
+    "target": "vibration_isolation_feet"
+  },
+  {
+    "label": "mounted with M5 bolts and T-nuts",
+    "source": "main_base_platform",
+    "target": "gantry_vertical_extrusions"
+  },
+  {
+    "label": "connected with M5 bolts and corner brackets",
+    "source": "gantry_vertical_extrusions",
+    "target": "gantry_horizontal_extrusion_x"
+  },
+  {
+    "label": "mounted with M3 screws",
+    "source": "gantry_horizontal_extrusion_x",
+    "target": "gantry_linear_rail_x"
+  },
+  {
+    "label": "slides on",
+    "source": "gantry_linear_rail_x",
+    "target": "gantry_linear_carriage_x"
+  },
+  {
+    "label": "mounted with bearings at ends",
+    "source": "gantry_horizontal_extrusion_x",
+    "target": "gantry_lead_screw_x"
+  },
+  {
+    "label": "attached to",
+    "source": "gantry_linear_carriage_x",
+    "target": "gantry_lead_screw_nut_x"
+  },
+  {
+    "label": "connected to",
+    "source": "gantry_lead_screw_x",
+    "target": "gantry_lead_screw_coupler_x"
+  },
+  {
+    "label": "drives (via NEMA motor)",
+    "source": "gantry_lead_screw_coupler_x",
+    "target": "motor_driver"
+  },
+  {
+    "label": "mounted to base",
+    "source": "main_base_platform",
+    "target": "electronics_enclosure"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "pre_amplifier_array"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "rf_filter_array"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "lock_in_amplifier"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "high_res_adc"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "fpga_dsp"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "embedded_system_ai"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "wireless_module"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "power_distribution_unit"
+  },
+  {
+    "label": "mounted inside with electronics_board_mounts_3d",
+    "source": "electronics_enclosure",
+    "target": "motor_driver"
+  },
+  {
+    "label": "mounted via squid_cryostat_mount_3d",
+    "source": "gantry_linear_carriage_x",
+    "target": "squid_cryostat_housing_custom"
+  },
+  {
+    "label": "housed within via squid_sensor_mount_3d",
+    "source": "squid_cryostat_housing_custom",
+    "target": "squid_sensor_array"
+  },
+  {
+    "label": "integrated/mounted via cryocooler_bracket_3d",
+    "source": "squid_cryostat_housing_custom",
+    "target": "cryocooler"
+  },
+  {
+    "label": "surrounded by via mu_metal_panel_holders_3d",
+    "source": "squid_cryostat_housing_custom",
+    "target": "mu_metal_shielding_panels"
+  },
+  {
+    "label": "held by",
+    "source": "mu_metal_shielding_panels",
+    "target": "mu_metal_panel_holders_3d"
+  },
+  {
+    "label": "uses for internal cable routing",
+    "source": "electronics_enclosure",
+    "target": "cable_management_clips_3d"
+  },
+  {
+    "label": "uses for external cable routing",
+    "source": "gantry_vertical_extrusions",
+    "target": "cable_management_clips_3d"
+  },
+  {
+    "label": "uses for external cable routing",
+    "source": "squid_cryostat_housing_custom",
+    "target": "cable_management_clips_3d"
+  }
+]
