@@ -10,6 +10,7 @@ Key Components
 The main components of the MCG system (as listed in the BOM) are:
 
 SQUID Sensor Array (Multi-Channel Low-Tc SQUID) –
+
 <img width="500" height="461" alt="image" src="https://github.com/user-attachments/assets/de7c7fc6-8202-403d-9f3e-e9829ab4d509" />
 
 A superconducting magnetic sensor array that detects pico- to femto-Tesla magnetic fields
