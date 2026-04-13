@@ -958,3 +958,6 @@ graphql:
     └── config.yaml          # Sample config files
     
 Each folder can have its own README describing its contents. For instance, electronics/README.md could detail the signal-chain schematics. Be sure to update the BOM.csv file if parts change, and include datasheets or links for each critical component in this documentation repository.
+
+
+IGNORE THIS ONE AS ALWAYS , I DON'T KNOW WHAT I AM DOING 
