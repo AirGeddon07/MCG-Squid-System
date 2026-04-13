@@ -1,6 +1,8 @@
 Magnetocardiography (MCG) SQUID System
+
 <img width="1344" height="768" alt="mcg_squid_system_VISUAL" src="https://github.com/user-attachments/assets/e607d359-72e2-4887-b26a-9df906c74e89" />
 This project implements a portable Magnetocardiography (MCG) system using a multi-channel low-temperature SQUID (Superconducting QUantum Interference Device) sensor array. The system measures the extremely weak magnetic fields produced by cardiac electrical activity. Key features include a cryogenic SQUID sensor housed in a lightweight carbon-fiber cryostat, a robotic gantry for sensor positioning, ultra-low-noise analog front-end electronics (preamplifiers, filters, lock-in amplifiers), high-resolution ADC and FPGA processing, and an embedded AI computer for control and data analysis. A battery-powered design with wireless connectivity enables untethered operation. This README documents the hardware components, assembly steps, wiring connections, software setup, and usage examples for building and using the MCG SQUID system.
+
 <img width="1243" height="864" alt="MCG visual 2" src="https://github.com/user-attachments/assets/4e773ef3-8f1b-4238-be81-b50a1e5d8170" />
 
 
