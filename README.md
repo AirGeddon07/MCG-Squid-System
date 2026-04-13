@@ -32,16 +32,24 @@ Technical Specifications
 A Multi-Channel Low-Tc SQUID is a highly sensitive sensor array engineered for the detection of extremely weak magnetic fields, leveraging superconducting quantum interference device technology. This device requires cryogenic cooling to maintain its superconducting state, enabling ultra-low noise measurements. It provides multiple analog output channels for precise, real-time magnetic field data acquisition.
 
 Measurement Range: 1 femtotesla (fT) to 10 picotesla (pT)
+
 Accuracy/Precision: Femtotesla-level (fT) precision
+
 Resolution: Sub-femtoTesla (fT)
+
 Output Interface: Multi-channel Analog Voltage Output
+
 Operating Voltage: Typically 3.3V - 5V DC (for bias and feedback electronics)
+
 Response Time: Microseconds (µs)
+
 Power Consumption: Low milliwatts (mW) for SQUID bias and readout electronics (excluding cryocooler)
 
 Pins:
 Analog Output Channels
+
 Bias Input
+
 Feedback Input
 
 Physical / Print
@@ -126,22 +134,37 @@ Technical Specifications:
 The Analog Devices ADA4807 Quad Pre-Amp Module is a high-speed, low-noise operational amplifier designed to amplify extremely weak analog signals, such as those from SQUID sensors. Its wide 1 GHz bandwidth and low input voltage noise make it ideal for sensitive scientific instrumentation requiring minimal signal degradation. Operating typically on +/-5V supplies, it provides four independent amplification channels for multi-sensor applications.
 
 Operating Voltage: +/-5V DC
+
 Power Consumption (Quiescent): ~20.8 mA (total for quad)
+
 Bandwidth (-3dB): 1 GHz
+
 Input Voltage Noise: 0.94 nV/√Hz
+
 Slew Rate: 390 V/µs
+
 Number of Channels: Quad (4)
+
 Communication Protocol: Analog Signal Path
+
 Data Rate: N/A (Analog Bandwidth: 1 GHz)
+
 Range: Output Voltage Swing (e.g., +/-3.8V @ +/-5V supplies)
+
 Antenna Type: N/A
+
 Supported Standards/Versions: N/A
 
 Pins:
+
 Analog Inputs (xN)
+
 Analog Outputs (xN)
+
 +/-5V Power: Ground
+
 Physical / Print
+
 Dimensions: 100x60x10mm
 
 Connections:
@@ -170,21 +193,35 @@ Technical Specifications:
 The Custom EMI Filter Board is a crucial passive electrical module designed to remove high-frequency electromagnetic interference from signals. It ensures signal integrity before amplification by blocking unwanted noise that could degrade performance. This board is essential for maintaining clean signal paths in sensitive instrumentation like the MCG SQUID System.
 
 Frequency Range: 100 kHz - 1 GHz (typical for high-frequency EMI)
+
 Attenuation: >40 dB at target frequencies
+
 Input/Output Impedance: 50 Ohm (matched to signal path)
+
 Maximum Operating Voltage: ±15 V (common for analog signal paths)
+
 Maximum Current Rating: 100 mA per channel
+
 Number of Channels: Configurable based on input/output pins
+
 Power Consumption: Negligible (passive component)
+
 Communication Protocol: Not Applicable (passive analog filter)
+
 Data Rate: Not Applicable (processes analog signals)
+
 Range: Not Applicable (no communication range)
+
 Antenna Type: Not Applicable (not an RF transceiver)
+
 Supported Standards/Versions: Not Applicable (no communication standards)
 
 Pins:
+
 Input Channels
+
 Output Channels
+
 Ground
 
 Physical / Print
@@ -216,18 +253,31 @@ Technical Specifications:
 The Zurich Instruments MFLI Lock-in Amplifier is a high-performance instrument designed for extracting small AC signals from noisy backgrounds using phase-sensitive detection. It offers a wide frequency range and excellent dynamic reserve, making it suitable for demanding applications in various fields. Connectivity via USB and Gigabit Ethernet, coupled with comprehensive API support, ensures flexible integration into complex experimental setups.
 
 Frequency Range: DC to 500 kHz or 5 MHz (model dependent)
+
 Demodulation Bandwidth: Up to 1 MHz
+
 Input Noise Density: < 2.5 nV/√Hz
+
 Dynamic Reserve: > 120 dB
+
 Communication Protocol: USB 2.0, Gigabit Ethernet
+
 Operating Voltage: 100-240 VAC, 50/60 Hz
+
 Power Consumption: < 50 W
+
 API Support: LabVIEW, MATLAB, Python, C
+
 Pins:
+
 Signal Inputs
+
 Reference Input
+
 Demodulated Outputs
+
 USB
+
 Ethernet
 
 Physical / Print
@@ -260,19 +310,31 @@ Technical Specifications:
 The Analog Devices AD7768-1 Evaluation Board serves as a high-resolution, 24-bit, 256 kSPS ADC module designed to convert analog signals into precise digital data. It utilizes an SPI interface for data output and features flexible analog input configuration. This board is crucial for applications requiring accurate digitization of low-frequency analog signals, such as those from a lock-in amplifier in a SQUID system.
 
 Communication Protocol: SPI (Serial Peripheral Interface)
+
 Data Rate: Up to 256 kSPS (kilo-samples per second)
+
 Resolution: 24-bit
+
 Input Voltage Range: Configurable, typically differential up to +/-2.5V or 5V single-ended
+
 Operating Voltage: Typically 5V DC power input (board), with internal regulation for ADC supplies
+
 Power Consumption: Approximately 100 mW (typical for the AD7768-1 chip)
+
 Antenna Type: Not applicable (ADC module)
+
 Supported Standards/Versions: Sigma-Delta ADC Architecture
 
 Pins:
+
 Analog Inputs
+
 SPI Data Out
+
 Clock
+
 CS
+
 Power Input
 
 Physical / Print
@@ -304,20 +366,33 @@ Technical Specifications:
 The Xilinx Zynq-7000 SoC Module integrates a dual-core ARM Cortex-A9 processor with Xilinx 7 series programmable logic (FPGA) on a single die, providing a powerful platform for real-time processing and hardware acceleration. It is ideal for applications requiring high-speed data buffering, custom signal conditioning, and intelligent pre-processing before more complex AI tasks, leveraging its heterogeneous architecture for optimal performance in embedded systems.
 
 Processor Core: Dual-core ARM Cortex-A9 MPCore
+
 Processor Clock Speed: Up to 1 GHz
+
 Programmable Logic (FPGA): Artix-7 or Kintex-7 equivalent logic cells (varies by model)
+
 DDR Memory Interface: Supports DDR3 (DDR4 on specific modules)
+
 On-chip Memory: Up to 512 KB OCM (On-Chip Memory) and Block RAM in PL
+
 Operating Voltage (Core): 0.9V - 1.0V (various I/O voltages)
+
 Built-in Peripherals (PS): 2x UART, 2x SPI, 2x I2C, 2x CAN, USB 2.0, Gigabit Ethernet
+
 Analog-to-Digital Converter: Integrated XADC block in PL (up to 1 MSPS, 12-bit)
+
 GPIO Pins: Highly configurable via PS and PL (typically 100+ user I/Os)
 
 Pins:
+
 SPI Input
+
 PCIe Output
+
 DDR4 RAM
+
 GPIOs
+
 Power Input
 
 Physical / Print
@@ -349,20 +424,33 @@ Technical Specifications:
 The NVIDIA Jetson Xavier NX is a compact yet powerful embedded AI computing platform, designed for deploying high-performance AI inference at the edge. It combines a 6-core ARM CPU and a Volta GPU with Tensor Cores, offering significant processing power for AI and machine learning applications. Its small form factor and multiple power modes make it suitable for power-constrained devices and systems requiring advanced compute capabilities.
 
 CPU: 6-core NVIDIA Carmel ARMv8.2 CPU (up to 1.9 GHz)
+
 GPU: 384-core NVIDIA Volta GPU with 48 Tensor Cores
+
 AI Performance: 21 TOPS (INT8)
+
 System Memory: 8 GB 128-bit LPDDR4x
+
 Internal Storage: 16 GB eMMC 5.1
+
 Power Modes: 10W / 15W / 20W
+
 GPIO Pins: Up to 40 (via header)
+
 Key Peripherals: PCIe Gen3, USB 3.1 Gen2, Gigabit Ethernet, MIPI CSI/DSI, UART/SPI/I2C
 
 Pins:
+
 PCIe Input
+
 Ethernet
+
 USB3.0
+
 GPIO
+
 Power Input
+
 CSI/DSI
 
 Physical / Print
@@ -380,7 +468,9 @@ A Wi-Fi 6E wireless card (M.2/PCIe form factor) providing high-bandwidth, low-la
 Power Electronics
 
 Estimate: 1 × $30.00 = $30.00
+
 Sourcing Options:
+
 https://www.amazon.com/OKN-AX210NGW-Bluetooth-Wireless-Ultra-Low/dp/B08MJLPZPL
 https://www.digikey.com/en/products/search?keywords=Intel%20AX210%20WiFi%206E%20Module
 https://www.mouser.com/c/embedded-solutions/wireless-connectivity/wi-fi-modules/?q=Intel%20AX210%20WiFi%206E%20Module
@@ -393,11 +483,17 @@ Technical Specifications:
 The Intel AX210 WiFi 6E Module provides high-bandwidth, low-latency wireless data transmission using the latest Wi-Fi 6E (802.11ax) and Bluetooth 5.2 standards. It integrates via a PCIe interface, offering data rates up to 2.4 Gbps, making it ideal for robust wireless communication in demanding applications like the MCG SQUID System. This module requires external antennas for operation and typically runs on 3.3V.
 
 Communication Protocol: Wi-Fi 6E (IEEE 802.11ax), Bluetooth 5.2
+
 Data Rate: Up to 2.4 Gbps (Wi-Fi 6E, 160MHz channels)
+
 Range: Environment dependent, typically up to 30m indoors
+
 Operating Voltage: 3.3V (via M.2 interface)
+
 Power Consumption: Typically 1-5W (varies with activity)
+
 Antenna Type: External via MHF4 connectors
+
 Supported Standards/Versions: IEEE 802.11ax (Wi-Fi 6E), 802.11a/b/g/n/ac/ax, Bluetooth 5.2
 
 Pins:
@@ -434,17 +530,27 @@ Technical Specifications:
 The Keithley 2400 Series SourceMeter is a high-precision instrument capable of simultaneously sourcing and measuring voltage or current. It offers a wide dynamic range, high accuracy, and low noise performance crucial for sensitive applications like biasing SQUID sensors. Its versatility makes it an indispensable tool for characterization and test in various research and industrial settings.
 
 Input Voltage Range: 100-240 VAC, 50/60 Hz
+
 Output Voltage Range: ±5 µV to ±200 V (with various sub-ranges)
+
 Maximum Current Source/Sink: ±10 nA to ±1 A (with various sub-ranges)
+
 Maximum Output Power: 20 W
+
 Voltage Programming Accuracy: 0.012% of reading + 0.005% of range
+
 Current Programming Accuracy: 0.02% of reading + 0.005% of range
+
 Voltage Noise (p-p, 0.1Hz to 10Hz): Typically <100 µV
+
 Overload Protection: Voltage and current limit protection; thermal shutdown
 
 Pins:
+
 AC Input
+
 SQUID Bias Output
+
 Feedback Current Output
 
 Physical / Print
@@ -476,22 +582,37 @@ Technical Specifications:
 The Custom Multi-Output DC-DC Converter is a critical power management component for the MCG SQUID System, regulating and distributing power from the battery pack. It provides multiple stable voltage rails (24V, 12V, 5V, 3.3V) to various onboard components, ensuring reliable operation. Designed for high efficiency and low noise, it is essential for the sensitive instrumentation within the system.
 
 Input Voltage Range: 20V - 30V DC (from High-Capacity Battery Pack)
+
 Output Voltages: 24V, 12V, 5V, 3.3V DC
+
 Maximum Current (24V Output): 5A
+
 Maximum Current (12V Output): 8A
+
 Maximum Current (5V Output): 10A
+
 Maximum Current (3.3V Output): 5A
+
 Efficiency: >90% (typical at full load)
+
 Output Ripple & Noise: <20mVpp (24V, 12V), <10mVpp (5V, 3.3V)
+
 Quiescent Current: <50mA (no load)
+
 Thermal Shutdown: 160°C
 
 Pins:
+
 24V Input
+
 24V Output
+
 12V Output
+
 5V Output
+
 3.3V Output
+
 Ground
 
 Physical / Print
@@ -524,22 +645,37 @@ Technical Specifications:
 The Custom Multi-Output DC-DC Converter is a critical power management component for the MCG SQUID System, regulating and distributing power from the battery pack. It provides multiple stable voltage rails (24V, 12V, 5V, 3.3V) to various onboard components, ensuring reliable operation. Designed for high efficiency and low noise, it is essential for the sensitive instrumentation within the system.
 
 Input Voltage Range: 20V - 30V DC (from High-Capacity Battery Pack)
+
 Output Voltages: 24V, 12V, 5V, 3.3V DC
+
 Maximum Current (24V Output): 5A
+
 Maximum Current (12V Output): 8A
+
 Maximum Current (5V Output): 10A
+
 Maximum Current (3.3V Output): 5A
+
 Efficiency: >90% (typical at full load)
+
 Output Ripple & Noise: <20mVpp (24V, 12V), <10mVpp (5V, 3.3V)
+
 Quiescent Current: <50mA (no load)
+
 Thermal Shutdown: 160°C
 
-Pins
+Pins:
+
 24V Input
+
 24V Output
+
 12V Output
+
 5V Output
+
 3.3V Output
+
 Ground
 
 Physical / Print
@@ -571,16 +707,25 @@ Technical Specifications:
 The Trinamic TMC5160-EVAL is an evaluation platform for the TMC5160 high-power stepper motor controller and driver IC. It provides precise control for 2-phase bipolar stepper motors, offering advanced features like high microstepping and various current control modes. This board is essential for developing and testing motion control solutions for multi-axis robotic or gantry systems.
 
 Operating Voltage (Motor Supply): 8 V to 60 V DC
+
 Max Motor Current (RMS per phase): Up to 3 A (4.2 A peak)
+
 Supported Motor Type: 2-Phase Bipolar Stepper Motors
+
 Microstepping Capability: Up to 256 microsteps per full step
+
 Control Interfaces: SPI, Step/Dir, UART
+
 Number of Axes: 1 (per TMC5160 chip, eval board may integrate multiple)
 
 Pins:
+
 24V Power Input
+
 Motor Outputs (x4)
+
 SPI Control Input
+
 Step/Dir Inputs
 
 Physical / Print
